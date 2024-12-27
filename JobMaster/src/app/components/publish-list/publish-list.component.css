@@ -1,0 +1,14 @@
+.table {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .pagination-controls {
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  .pagination-controls .ngx-pagination {
+    display: inline-block;
+  }
+  

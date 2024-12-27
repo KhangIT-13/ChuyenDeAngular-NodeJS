@@ -1,0 +1,63 @@
+<div class="container-fluid mt-4">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-md-12">
+        <!-- Nút Thêm -->
+        <div class="mb-3 text-end">
+          <a class="btn btn-primary" href="/published">Thêm Mới</a>
+        </div>
+  
+        <!-- Bảng Publish -->
+        <div class="table-responsive shadow-sm rounded bg-white">
+          <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th>User ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Fullname</th>
+                <th>Role</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="
+                  let user of users
+                    | paginate : { itemsPerPage: itemsPerPage, currentPage: page }
+                "
+              >
+                <td>{{ user.UserID }}</td>
+                <td>{{ user.UserName }}</td>
+                <td>{{ user.Email }}</td>
+                <td>{{ user.FullName }}</td>
+                <td>{{ user.Role}}</td>
+                <td class="text-center">
+                  <a
+                    class="btn btn-warning btn-sm me-2"
+                    href="/published"
+                  >
+                    Sửa
+                  </a>
+                  <button
+                    class="btn btn-danger btn-sm"
+                    (click)="deleteUser(user.UserID)"
+                  >
+                    Xóa
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+        <!-- Phân trang -->
+        <div class="pagination-controls mt-3 text-center">
+          <pagination-controls
+            class="d-inline-block"
+            (pageChange)="page = $event"
+          ></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+  

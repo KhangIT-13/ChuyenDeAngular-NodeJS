@@ -1,0 +1,549 @@
+<!-- recuiter Nav -->
+<nav class="navbar navbar-expand-lg navbar-light nav-recuitment">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNava"
+    aria-controls="navbarNava"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse container" id="navbarNava" *ngIf="roleUser !== 'Candidate'">
+    <ul class="navbar-nav nav-recuitment-li">
+      <li class="nav-item active">
+        <a class="nav-link" href="/publishlist">Quản lý hồ sơ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/published">Đăng tuyển</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Việc làm đã lưu</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Quản lý hồ sơ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Cài đặt</a>
+      </li>
+    </ul>
+    <ul class="rec-nav-right">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Tạo hồ sơ</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--  recuiter Nav -->
+
+<!-- widget recuitment  -->
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="home-ads">
+          <a href="#">
+            <img src="assets/img/hna2.jpg" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- (end) widget recuitment  -->
+
+<!-- published recuitment -->
+<div class="container-fluid published-recuitment-wrapper">
+  <div class="container published-recuitment-content">
+    <div class="row">
+      <div class="col-md-8 col-sm-12 col-12 recuitment-inner">
+        <form class="employee-form">
+          <div class="accordion" id="accordionExample">
+            <div class="card recuitment-card">
+              <div class="card-header recuitment-card-header" id="headingOne">
+                <h2 class="mb-0">
+                  <a
+                    class="btn btn-link btn-block text-left recuitment-header"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    Thông tin tài khoản
+                    <span id="clickc1_advance2" class="clicksd">
+                      <i class="fa fa fa-angle-up"></i>
+                    </span>
+                  </a>
+                </h2>
+              </div>
+
+              <div
+                id="collapseOne"
+                class="collapse show"
+                aria-labelledby="headingOne"
+                data-parent="#accordionExample"
+              >
+                <div class="card-body recuitment-body row">
+                  <div class="col-md-3">
+                    <div class="avatar-upload">
+                      <div class="avatar-edit">
+                        <input
+                          type="file"
+                          id="imageUpload"
+                          accept=".png, .jpg, .jpeg"
+                        />
+                        <label for="imageUpload"></label>
+                      </div>
+                      <div class="avatar-preview">
+                        <div
+                          id="imagePreview"
+                          style="
+                            background-image: url(https://i.pravatar.cc/500?img=7);
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label"
+                        >Họ tên<span style="color: red" class="pl-2"
+                          >*</span
+                        ></label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Nhập họ và tên"
+                          [(ngModel)]="userInfo.FullName"
+                          [ngModelOptions]="{ standalone: true }"
+                        />
+                      </div>
+                    </div>
+                    <!-- Số điện thoại -->
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label"
+                        >Số điện thoại</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="number"
+                          class="form-control"
+                          [(ngModel)]="userInfo.Phone"
+                          [ngModelOptions]="{ standalone: true }"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- Giới tính -->
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label"
+                        >Giới tính<span style="color: red" class="pl-2"
+                          >*</span
+                        ></label
+                      >
+                      <div class="col-sm-9">
+                        <select
+                          class="form-control"
+                          [(ngModel)]="userInfo.Sex"
+                          [ngModelOptions]="{ standalone: true }"
+                        >
+                          <option value="0">Nam</option>
+                          <option value="1">Nữ</option>
+                          <option value="2">Khác</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <!-- Ngày sinh -->
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label"
+                        >Ngày sinh<span style="color: red" class="pl-2"
+                          >*</span
+                        ></label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="date"
+                          class="form-control"
+                          [(ngModel)]="userInfo.DateOfBirth"
+                          [ngModelOptions]="{ standalone: true }"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- Tình trạng hôn nhân -->
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label"
+                        >Hôn nhân<span style="color: red" class="pl-2"
+                          >*</span
+                        ></label
+                      >
+                      <div class="col-sm-9">
+                        <select
+                          class="form-control"
+                          [(ngModel)]="userInfo.Marital"
+                          [ngModelOptions]="{ standalone: true }"
+                        >
+                          <option value="">Chọn tình trạng hôn nhân</option>
+                          <option value="0">Độc thân</option>
+                          <option value="1">Đã kết hôn</option>
+                          <option value="2">Đã ly hôn</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <!-- Tỉnh/Thành phố -->
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label"
+                        >Tỉnh/ Thành phố<span style="color: red" class="pl-2"
+                          >*</span
+                        ></label
+                      >
+                      <div class="col-sm-9">
+                        <select
+                          class="form-control"
+                          [(ngModel)]="userInfo.Country"
+                          [ngModelOptions]="{ standalone: true }"
+                        >
+                          <option
+                            *ngFor="let province of provinces"
+                            [value]="province.ProvinceName"
+                          >
+                            {{ province.ProvinceName }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <!-- Chỗ ở hiện tại -->
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label"
+                        >Chỗ ở hiện tại<span style="color: red" class="pl-2"
+                          >*</span
+                        ></label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Nhập địa chỉ"
+                          [(ngModel)]="userInfo.Address"
+                          [ngModelOptions]="{ standalone: true }"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- Nút Lưu -->
+                    <div class="rec-submit">
+                      <button
+                        type="button"
+                        class="btn-submit-recuitment mb-3 ml-3"
+                        (click)="onSubmit()"
+                      >
+                        <i class="fa fa-floppy-o pr-2"></i>Lưu Hồ Sơ
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card recuitment-card">
+              <div class="card-header recuitment-card-header" id="headingThree">
+                <h2 class="mb-0">
+                  <a
+                    class="btn btn-link btn-block text-left collapsed recuitment-header"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseThree"
+                    aria-expanded="false"
+                    aria-controls="collapseThree"
+                  >
+                    Thông tin chung
+                    <span id="clickc1_advance1" class="clicksd">
+                      <i class="fa fa fa-angle-up"></i>
+                    </span>
+                  </a>
+                </h2>
+              </div>
+              <div
+                id="collapseThree"
+                class="collapse show"
+                aria-labelledby="headingThree"
+                data-parent="#accordionExample"
+              >
+                <div class="card-body recuitment-body">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right label"
+                      >Tiêu đề hồ sơ<span style="color: red" class="pl-2"
+                        >*</span
+                      ></label
+                    >
+                    <div class="col-sm-9">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Nhập tiêu đề"
+                        [(ngModel)]="profile.Title"
+                        [ngModelOptions]="{ standalone: true }"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right label"
+                      >Trình độ cao nhất<span style="color: red" class="pl-2"
+                        >*</span
+                      ></label
+                    >
+                    <div class="col-sm-9">
+                      <select
+                        class="form-control"
+                        [(ngModel)]="profile.EducationID"
+                        [ngModelOptions]="{ standalone: true }"
+                      >
+                        <option [value]="0" selected>
+                          Chọn trình độ học vấn
+                        </option>
+                        <option
+                          *ngFor="let level of educationLevels"
+                          [value]="level.EducationLevelID"
+                        >
+                          {{ level.EducationLevelName }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right label"
+                      >Số năm kinh nghiệm<span style="color: red" class="pl-2"
+                        >*</span
+                      ></label
+                    >
+                    <div class="col-sm-9">
+                      <select
+                        type="text"
+                        class="form-control"
+                        [(ngModel)]="profile.ExperienceID"
+                        [ngModelOptions]="{ standalone: true }"
+                      >
+                        <option
+                          *ngFor="let experience of experiences"
+                          [value]="experience.ExperienceID"
+                        >
+                          {{ experience.ExperienceName }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right label"
+                      >Cấp bậc hiện tại<span style="color: red" class="pl-2"
+                        >*</span
+                      ></label
+                    >
+                    <div class="col-sm-9">
+                      <select
+                        type="text"
+                        class="form-control"
+                        [(ngModel)]="profile.CurrentLevelID"
+                        [ngModelOptions]="{ standalone: true }"
+                      >
+                        <option
+                          *ngFor="let level of currentLevels"
+                          [value]="level.LevelID"
+                        >
+                          {{ level.LevelName }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right label"
+                      >Cấp bậc mong muốn<span style="color: red" class="pl-2"
+                        >*</span
+                      ></label
+                    >
+                    <div class="col-sm-9">
+                      <select
+                        type="text"
+                        class="form-control"
+                        [(ngModel)]="profile.WishLevelID"
+                        [ngModelOptions]="{ standalone: true }"
+                      >
+                        <option
+                          *ngFor="let wish of wishLevels"
+                          [value]="wish.LevelID"
+                        >
+                          {{ wish.LevelName }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right label"
+                      >Mong muốn mức lương tối thiểu (VNĐ/ tháng)<span
+                        style="color: red"
+                        class="pl-2"
+                        >*</span
+                      ></label
+                    >
+                    <div class="col-sm-9">
+                      <input
+                        type="number"
+                        class="form-control"
+                        placeholder="Nhập số tiền mong muốn"
+                        [(ngModel)]="profile.WishSalary"
+                        [ngModelOptions]="{ standalone: true }"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right label"
+                      >Nơi làm việc mong muốn<span
+                        style="color: red"
+                        class="pl-2"
+                        >*</span
+                      ></label
+                    >
+                    <div class="col-sm-9">
+                      <select
+                        type="text"
+                        class="form-control"
+                        [(ngModel)]="profile.WishProvinceID"
+                        [ngModelOptions]="{ standalone: true }"
+                      >
+                        <option
+                          *ngFor="let province of provinces"
+                          [value]="province.ProvinceID"
+                        >
+                          {{ province.ProvinceName }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Nút Lưu -->
+          <div class="rec-submit">
+            <button
+              type="button"
+              class="btn-submit-recuitment mb-3 ml-3"
+              (click)="onSubmitResume()"
+            >
+              <i class="fa fa-floppy-o pr-2"></i>Lưu Hồ Sơ
+            </button>
+          </div>
+          <!-- <div class="rec-submit">
+            <button
+              type="submit"
+              class="btn-submit-recuitment mb-3 ml-3"
+              name="submit"
+            >
+              <i class="fa fa-floppy-o pr-2"></i>Lưu Hồ Sơ
+            </button>
+          </div> -->
+        </form>
+      </div>
+      <!-- Side bar -->
+      <div class="col-md-4 col-sm-12 col-12">
+        <div class="recuiter-info">
+          <div class="recuiter-info-avt">
+            <img src="assets/img/icon_avatar.jpg" />
+          </div>
+          <div class="clearfix list-rec">
+            <h4>{{userInfo.FullName}}</h4>
+            <ul>
+              <!-- <li>
+                <a href="#">Nhà tuyển dụng của tôi <strong>(0)</strong></a>
+              </li> -->
+              <li>
+                <a href="/applicationlist">Việc làm đã ứng tuyển </a>
+              </li>
+              <!-- <li>
+                <a href="#">Việc làm đã nộp <strong>(1150)</strong></a>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+
+        <div class="block-sidebar" style="margin-bottom: 20px">
+          <header>
+            <h3 class="title-sidebar font-roboto bg-primary">
+              Trung tâm quản lý
+            </h3>
+          </header>
+          <div class="content-sidebar menu-trung-tam-ql menu-ql-employer">
+            <h3 class="menu-ql-ntv">Hồ sơ của bạn</h3>
+            <ul>
+              <li>
+                <a href="#"> Quản lý Tài khoản </a>
+              </li>
+              <li>
+                <a href="#"> Quản lý hồ sơ </a>
+              </li>
+            </ul>
+            <h3 class="menu-ql-ntv">Việc làm của bạn</h3>
+            <ul>
+              <li>
+                <a href="#"> Việc làm đã lưu </a>
+              </li>
+              <li>
+                <a href="#" target="_blank"> Việc làm dã ứng tuyển </a>
+              </li>
+            </ul>
+            <h3 class="menu-ql-ntv">Hỗ trợ và thông báo</h3>
+            <ul>
+              <li>
+                <a href="#" title="Gửi yêu cầu đến ban quản trị">
+                  Gửi yêu cầu đến ban quản trị
+                </a>
+              </li>
+              <li>
+                <a href="#" title="Ban quản trị thông báo">
+                  Ban quản trị thông báo
+                </a>
+              </li>
+              <li>
+                <a href="#" title="Hướng dẫn thao tác"> Hướng dẫn thao tác </a>
+              </li>
+              <li>
+                <a href="#" target="_blank">
+                  <span>Thông tin thanh toán</span>
+                </a>
+              </li>
+              <li>
+                <a target="_blank" href="#">
+                  <span>Cổng tra cứu lương</span>
+                </a>
+              </li>
+              <li>
+                <a target="_blank" href="#">
+                  <span> Cẩm nang tuyển dụng</span>
+                </a>
+              </li>
+            </ul>
+            <ul>
+              <li class="logout">
+                <a href="#" title="Đăng xuất"> Đăng xuất </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- (end) published recuitment -->

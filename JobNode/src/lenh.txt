@@ -1,0 +1,1 @@
+-- Tạo model tự động : npx sequelize-auto -o "./src/demoModels" -d JobDb -h 127.0.0.1 -u root -x 123456 -e mysql -p 3307

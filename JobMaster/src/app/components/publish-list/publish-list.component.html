@@ -1,0 +1,63 @@
+<div class="container-fluid mt-4">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-md-12">
+        <!-- Nút Thêm -->
+        <div class="mb-3 text-end">
+          <a class="btn btn-primary" href="/published">Thêm Mới</a>
+        </div>
+  
+        <!-- Bảng Publish -->
+        <div class="table-responsive shadow-sm rounded bg-white">
+          <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th>Publish ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Salary</th>
+                <th>Submission Deadline</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="
+                  let publish of publishes
+                    | paginate : { itemsPerPage: itemsPerPage, currentPage: page }
+                "
+              >
+                <td>{{ publish.PublishID }}</td>
+                <td>{{ publish.PublishTitle }}</td>
+                <td>{{ publish.Description }}</td>
+                <td>{{ publish.Salary }}</td>
+                <td>{{ publish.SubmissionDeadline | date : 'dd/MM/yyyy' }}</td>
+                <td class="text-center">
+                  <a
+                    class="btn btn-warning btn-sm me-2"
+                    href="/published/{{ publish.PublishID }}"
+                  >
+                    Sửa
+                  </a>
+                  <button
+                    class="btn btn-danger btn-sm"
+                    (click)="deletePublish(publish.PublishID)"
+                  >
+                    Xóa
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+        <!-- Phân trang -->
+        <div class="pagination-controls mt-3 text-center">
+          <pagination-controls
+            class="d-inline-block"
+            (pageChange)="page = $event"
+          ></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+  

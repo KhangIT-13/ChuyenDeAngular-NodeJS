@@ -1,0 +1,373 @@
+<div class="card recuitment-card">
+              <div class="card-header recuitment-card-header" id="headingOne">
+                <h2 class="mb-0">
+                  <a
+                    class="btn btn-link btn-block text-left recuitment-header"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    Thông tin tài khoản
+                    <span id="clickc1_advance2" class="clicksd">
+                      <i class="fa fa fa-angle-up"></i>
+                    </span>
+                  </a>
+                </h2>
+              </div>
+
+              <div
+                id="collapseOne"
+                class="collapse show"
+                aria-labelledby="headingOne"
+                data-parent="#accordionExample"
+              >
+                <div class="card-body recuitment-body row">
+                  <div class="col-md-3">
+                    <div class="avatar-upload">
+                      <div class="avatar-edit">
+                        <input
+                          type="file"
+                          id="imageUpload"
+                          accept=".png, .jpg, .jpeg"
+                        />
+                        <label for="imageUpload"></label>
+                      </div>
+                      <div class="avatar-preview">
+                        <div
+                          id="imagePreview"
+                          style="
+                            background-image: url(https://i.pravatar.cc/500?img=7);
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-9">
+                    <form (ngSubmit)="onSubmitResume()">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label"
+                        >Họ tên<span style="color: red" class="pl-2"
+                          >*</span
+                        ></label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Nhập họ và tên"
+                          [(ngModel)]="userInfo.FullName"
+                          name="fullName"
+                        />
+                      </div>
+                    </div>
+                    <!-- Số điện thoại -->
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label"
+                        >Số điện thoại</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="number"
+                          class="form-control"
+                          [(ngModel)]="userInfo.Phone"
+                          name="phone"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- Giới tính -->
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label"
+                        >Giới tính<span style="color: red" class="pl-2"
+                          >*</span
+                        ></label
+                      >
+                      <div class="col-sm-9">
+                        <select
+                          class="form-control"
+                          [(ngModel)]="userInfo.Sex"
+                          name="gender"
+                        >
+                          <option value="Nam">Nam</option>
+                          <option value="Nữ">Nữ</option>
+                          <option value="">Khác</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <!-- Ngày sinh -->
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label"
+                        >Ngày sinh<span style="color: red" class="pl-2"
+                          >*</span
+                        ></label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="date"
+                          class="form-control"
+                          [(ngModel)]="userInfo.DateOfBirth"
+                          name="date"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- Tình trạng hôn nhân -->
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label"
+                        >Hôn nhân<span style="color: red" class="pl-2"
+                          >*</span
+                        ></label
+                      >
+                      <div class="col-sm-9">
+                        <select
+                          class="form-control"
+                          [(ngModel)]="userInfo.Marital"
+                          name="maritalStatus"
+                        >
+                          <option value="">Chọn tình trạng hôn nhân</option>
+                          <option value="Độc thân">Độc thân</option>
+                          <option value="Đã kết hôn">Đã kết hôn</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <!-- Tỉnh/Thành phố -->
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label"
+                        >Tỉnh/ Thành phố<span style="color: red" class="pl-2"
+                          >*</span
+                        ></label
+                      >
+                      <div class="col-sm-9">
+                        <select
+                          class="form-control"
+                          [(ngModel)]="userInfo.Country"
+                          name="province"
+                        >
+                          <option
+                            *ngFor="let province of provinces"
+                            [value]="province.ProvinceName"
+                          >
+                            {{ province.ProvinceName }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <!-- Chỗ ở hiện tại -->
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label"
+                        >Chỗ ở hiện tại<span style="color: red" class="pl-2"
+                          >*</span
+                        ></label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Nhập địa chỉ"
+                          [(ngModel)]="userInfo.Address"
+                          name="address"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- Nút Lưu -->
+                    <div class="rec-submit">
+                      <button
+                        type="button"
+                        class="btn-submit-recuitment mb-3 ml-3"
+                        (click)="onSubmit()"
+                      >
+                        <i class="fa fa-floppy-o pr-2"></i>Lưu Hồ Sơ
+                      </button>
+                    </div>
+                  </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card recuitment-card">
+              <div class="card-header recuitment-card-header" id="headingThree">
+                <h2 class="mb-0">
+                  <a
+                    class="btn btn-link btn-block text-left collapsed recuitment-header"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseThree"
+                    aria-expanded="false"
+                    aria-controls="collapseThree"
+                  >
+                    Thông tin chung
+                    <span id="clickc1_advance1" class="clicksd">
+                      <i class="fa fa fa-angle-up"></i>
+                    </span>
+                  </a>
+                </h2>
+              </div>
+              <div
+                id="collapseThree"
+                class="collapse show"
+                aria-labelledby="headingThree"
+                data-parent="#accordionExample"
+              >
+                <div class="card-body recuitment-body">
+                  <form (ngSubmit)="onSubmitResume()">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label"
+                        >Tiêu đề hồ sơ<span style="color: red" class="pl-2"
+                          >*</span
+                        ></label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Nhập tiêu đề"
+                          [(ngModel)]="profile.Title"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label"
+                        >Trình độ cao nhất<span style="color: red" class="pl-2"
+                          >*</span
+                        ></label
+                      >
+                      <div class="col-sm-9">
+                        <select
+                          type="text"
+                          class="form-control"
+                          [(ngModel)]="profile.EducationID"
+                          id="jobLevel"
+                        >
+                          <option
+                            *ngFor="let level of educationLevels"
+                            [value]="level.EducationLevelID"
+                          >
+                            {{ level.EducationLevelName }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label"
+                        >Số năm kinh nghiệm<span style="color: red" class="pl-2"
+                          >*</span
+                        ></label
+                      >
+                      <div class="col-sm-9">
+                        <select
+                          type="text"
+                          class="form-control"
+                          [(ngModel)]="profile.ExperienceName"
+                          id="jobExperience"
+                        >
+                          <option
+                            *ngFor="let experience of experiences"
+                            [value]="experience.ExperienceID"
+                          >
+                            {{ experience.ExperienceName }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label"
+                        >Cấp bậc hiện tại<span style="color: red" class="pl-2"
+                          >*</span
+                        ></label
+                      >
+                      <div class="col-sm-9">
+                        <select
+                          type="text"
+                          class="form-control"
+                          [(ngModel)]="profile.CurrentLevelName"
+                          id="empLevel"
+                        >
+                          <option
+                            *ngFor="let level of currentLevels"
+                            [value]="level.LevelID"
+                          >
+                            {{ level.LevelName }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label"
+                        >Cấp bậc mong muốn<span style="color: red" class="pl-2"
+                          >*</span
+                        ></label
+                      >
+                      <div class="col-sm-9">
+                        <select
+                          type="text"
+                          class="form-control"
+                          [(ngModel)]="profile.WishLevelName"
+                          id="empWishLevel"
+                        >
+                          <option
+                            *ngFor="let wish of wishLevels"
+                            [value]="wish.LevelID"
+                          >
+                            {{ wish.LevelName }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label"
+                        >Mong muốn mức lương tối thiểu (VNĐ/ tháng)<span
+                          style="color: red"
+                          class="pl-2"
+                          >*</span
+                        ></label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="number"
+                          class="form-control"
+                          placeholder="Nhập số"
+                          s
+                          [(ngModel)]="profile.WishSalary"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label"
+                        >Nơi làm việc mong muốn<span
+                          style="color: red"
+                          class="pl-2"
+                          >*</span
+                        ></label
+                      >
+                      <div class="col-sm-9">
+                        <select
+                          type="text"
+                          class="form-control"
+                          [(ngModel)]="profile.WishProvinceName"
+                          id="empWishPlace"
+                        >
+                          <option
+                            *ngFor="let province of provinces"
+                            [value]="province.ProvinceID"
+                          >
+                            {{ province.ProvinceName }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>

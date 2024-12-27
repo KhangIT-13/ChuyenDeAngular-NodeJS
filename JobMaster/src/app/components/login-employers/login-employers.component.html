@@ -1,0 +1,115 @@
+<div class="container-fluid login-fluid">
+	<div class="login-container">
+	  <!-- Login Header -->
+	  <div class="login-header">
+		<div class="w-login m-auto d-flex justify-content-between align-items-center">
+		  <div class="login-logo">
+			<h3>
+			  <a href="#">
+				<img src="assets/img/techjobs_bgw.png" alt="TechJobs">
+			  </a>
+			</h3>
+			<span class="login-breadcrumb"><em>/</em> Đăng Nhập</span>
+		  </div>
+		  <div>
+			<a href="/" class="btn btn-return">Trang Chủ</a>
+		  </div>
+		</div>
+	  </div>
+	  <!-- (end) Login Header -->
+  
+	  <div class="clearfix"></div>
+  
+	  <div class="padding-top-90"></div>
+  
+	  <!-- Login Main -->
+	  <div class="login-main">
+		<div class="w-login m-auto">
+		  <div class="row">
+			<!-- Login Main Descriptions -->
+			<div class="col-md-6 col-sm-12 login-main-left text-center">
+			  <img src="assets/img/banner-login.png" alt="Login Banner" class="img-fluid">
+			</div>
+  
+			<!-- Login Main Form -->
+			<div class="col-md-6 col-sm-12 login-main-right">
+			  <form class="login-form" (ngSubmit)="login()">
+				<div class="login-main-header text-center mb-4">
+				  <h3>Đăng Nhập</h3>
+				</div>
+  
+				<!-- Username Input -->
+				<div class="form-group">
+				  <input 
+					type="text" 
+					id="UserName" 
+					class="form-control" 
+					placeholder="Nhập tên đăng nhập hoặc email" 
+					[(ngModel)]="user.UserName" 
+					name="UserName" 
+					required>
+				</div>
+  
+				<!-- Password Input -->
+				<div class="form-group">
+				  <input 
+					type="password" 
+					id="Password" 
+					class="form-control" 
+					placeholder="Nhập mật khẩu" 
+					[(ngModel)]="user.Password" 
+					name="Password" 
+					required>
+				</div>
+  
+				<!-- Links -->
+				<div class="form-group d-flex justify-content-between">
+				  <a href="#" class="fg-login">Quên mật khẩu</a>
+				  <a href="/register-employer" class="fg-login">Chưa có tài khoản? Đăng ký</a>
+				</div>
+  
+				<!-- Submit Button -->
+				<button type="submit" class="btn btn-primary btn-login w-100">Đăng Nhập</button>
+  
+				<!-- Or Divider -->
+				<div class="text-center my-4">
+				  <span class="text-or">Hoặc</span>
+				</div>
+  
+				<!-- Social Login -->
+				<div class="row">
+					<div class="col-sm-12">
+						<a href="/login" class="btn btn-apply w-100">
+						  <i class="fa fa-calendar" ></i>
+						  Đăng nhập với tư cách ứng viên
+						</a>
+					  </div>
+				</div>
+			  </form>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <!-- (end) Login Main -->
+	</div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="login-footer bg-light py-3 mt-4">
+	<div class="container">
+	  <div class="row align-items-center">
+		<!-- Footer Left -->
+		<div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+		  <p class="mb-0">Copyright © 2020 <a href="#">TechJobs</a>. All Rights Reserved.</p>
+		</div>
+		<!-- Footer Right -->
+		<div class="col-md-6 text-center text-md-end">
+		  <ul class="list-inline mb-0">
+			<li class="list-inline-item"><a href="#">Terms & Conditions</a></li>
+			<li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+		  </ul>
+		</div>
+	  </div>
+	</div>
+  </footer>
+  

@@ -1,0 +1,235 @@
+.another-page {
+    background: black !important;
+    margin-bottom: 20px;
+    transition: all ease .3s;
+    -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.06);
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.06);
+    padding: 6px 0;
+}
+
+.select2-selection__rendered{
+    color: #8F8D8D;
+    line-height: 45px;
+    padding-right: 33px;
+    padding-left: 40px;
+    height: calc(1.5em + .75rem + 2px);
+    border: 1px solid #eee!important;
+    border-radius: 2px!important;
+    font-size: 14px!important;
+    padding: .375rem .75rem!important;
+    line-height: inherit;
+    display: block;
+  padding: 0 4px;
+  line-height: 29px;
+}
+/* General Styling for Filter Item */
+.filter-topic {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+}
+
+/* When hovering over the filter item */
+.filter-topic:hover {
+  background-color: #f4f4f4;
+}
+
+/* Checkbox style */
+.filter-topic input[type="checkbox"] {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #007bff; /* Change color of checkbox when checked */
+  transition: all 0.3s ease;
+}
+
+/* Label Style */
+.filter-topic label {
+  font-size: 12px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  text-align: start;
+  flex: 1;
+}
+
+/* Label Hover Effect */
+.filter-topic label:hover {
+  color: #007bff;
+}
+
+/* Filter Count Style */
+.filter-topic .filter-count {
+  font-size: 12px;
+  color: #888;
+  background-color: #e4e4e4;
+  padding: 3px 6px;
+  border-radius: 12px;
+  font-weight: bold;
+  min-width: 30px;
+}
+
+/* Style for the container of all filter topics */
+.cotain-common-filter {
+  margin-bottom: 8px;
+}
+
+
+
+/* -------------------------------------------------------------------- */
+
+
+/* Make sure the checkboxes and labels are aligned */
+.filter-rating {
+  display: flex;
+  align-items: center;
+  padding: 4px 0;
+  transition: background-color 0.3s ease;
+}
+
+/* Add hover effect on the filter item */
+.filter-rating:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Style for the checkbox */
+.filter-rating input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  accent-color: #007bff; /* Customize checkbox color */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Style for the label */
+.filter-rating label {
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* Change color on hover */
+.filter-rating label:hover {
+  color: #007bff;
+}
+
+/* Optional: Style the checked state of checkboxes */
+.filter-rating input[type="checkbox"]:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+/* Add some padding and spacing to the surrounding container */
+.panel-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Optional: Style the card's border and box shadow */
+.o-card.card-body {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ------------------------------------------------------------ */
+/* Style for the price input fields */
+.filter-input-price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Style for the input fields */
+.if-price {
+  width: 80px;
+  height: 35px;
+  padding: 0 5px;
+  font-size: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+  transition: border-color 0.3s ease;
+  margin : 0;
+}
+
+/* Focus effect on the input fields */
+.if-price:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Styling the minus separator between the two price inputs */
+._line p {
+  font-size: 10px;
+  margin: 0;
+  color: #555;
+}
+
+/* Style for the submit button */
+.sb-fprice {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  height: 35px;
+  padding : 0 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.sb-fprice:hover {
+  background-color: #0056b3;
+}
+
+/* Optional: Add spacing between the form elements */
+.al-price-filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Optional: style the card body to make it look neat */
+.o-card.card-body {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.pagination button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.pagination button:hover {
+  background-color: #ddd;
+}

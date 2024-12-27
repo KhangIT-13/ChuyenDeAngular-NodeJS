@@ -1,0 +1,34 @@
+<!-- chat.component.html -->
+<div class="chat-container">
+  <div class="chat-header">
+    <h2>Chat với nhà tuyển dụng</h2>
+  </div>
+
+  <!-- <div class="chat-box">
+      <div *ngFor="let message of messages" class="chat-message">
+        <span [class]="message.isMine ? 'my-message' : 'other-message'">
+          {{ message.content }}
+        </span>
+      </div>
+    </div> -->
+  <div class="chat-box">
+    <div class="chat-message my-message">
+      Hello
+    </div>
+    <div class="chat-message other-message">
+         Hello nha tuyen dung
+    </div>
+    <div class="chat-message my-message">
+        <span class="my-message"> Hello </span>
+      </div>
+      <div class="chat-message other-message">
+           Hello nha tuyen dung
+      </div>
+  </div>
+  <div class="chat-input">
+    <!-- <input type="text" [(ngModel)]="newMessage" placeholder="Nhập tin nhắn..." (keydown.enter)="sendMessage()" />
+      <button (click)="sendMessage()">Gửi</button> -->
+    <input type="text" placeholder="Nhập tin nhắn..." />
+    <button>Gửi</button>
+  </div>
+</div>

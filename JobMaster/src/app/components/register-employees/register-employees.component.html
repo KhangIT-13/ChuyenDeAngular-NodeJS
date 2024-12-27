@@ -1,0 +1,126 @@
+<!-- register.component.html -->
+<div class="container-fluid login-fluid clear-left clear-right">
+	<div class="login-container">
+	  <!-- Header -->
+	  <div class="login-header">
+		<div class="w-login m-auto">
+		  <div class="login-logo">
+			<h3>
+			  <a href="#">
+				<img src="assets/img/techjobs_bgw.png" alt="TechJobs">
+			  </a>
+			</h3>
+			<span class="login-breadcrumb"><em>/</em> Đăng Ký</span>
+		  </div>
+		  <div class="login-right">
+			<a href="#" class="btn btn-return">Về Trang Chủ</a>
+		  </div>
+		</div>
+	  </div>
+	  <!-- End Header -->
+  
+  
+	  <!-- Form chính -->
+	  <div class="login-main">
+		<div class="w-login m-auto">
+		  <div class="row" >
+			<!-- Hình ảnh minh họa -->
+			<div class="col-md-6 col-sm-12 col-12 login-main-left" style="margin-top : 80px">
+			  <img src="assets/img/banner-login.png" alt="Banner">
+			</div>
+  
+			<!-- Form -->
+			<div class="col-md-6 col-sm-12 col-12 login-main-right" style="margin-top : 80px">
+			  <form class="login-form reg-form" (submit)="register()">
+				<div class="login-main-header">
+				  <h3>Đăng Ký Tài Khoản</h3>
+				</div>
+  
+				<div class="input-div one">
+				  <div class="div lg-lable">
+					<input
+					  type="text"
+					  class="input form-control-lgin"
+					  placeholder="Nhập họ và tên"
+					  [(ngModel)]="user.FullName"
+					  name="FullName"
+					  required
+					/>
+				  </div>
+				</div>
+  
+				<div class="input-div one">
+				  <div class="div lg-lable">
+					<input
+					  type="email"
+					  class="input form-control-lgin"
+					  placeholder="Nhập email của bạn"
+					  [(ngModel)]="user.Email"
+					  name="Email"
+					  required
+					/>
+				  </div>
+				</div>
+  
+				<div class="input-div one">
+				  <div class="div lg-lable">
+					<input
+					  type="tel"
+					  class="input form-control-lgin"
+					  placeholder="Nhập số điện thoại"
+					  [(ngModel)]="user.Phone"
+					  name="Phone"
+					  pattern="^[0-9]{10,12}$"
+					  required
+					/>
+				  </div>
+				</div>
+  
+				<div class="input-div one">
+				  <div class="div lg-lable">
+					<input
+					  type="password"
+					  class="input form-control-lgin"
+					  placeholder="Tạo mật khẩu"
+					  [(ngModel)]="user.Password"
+					  name="Password"
+					  minlength="6"
+					  required
+					/>
+				  </div>
+				</div>
+  
+				<div class="input-div one">
+				  <div class="div lg-lable">
+					<input
+					  type="password"
+					  class="input form-control-lgin"
+					  placeholder="Xác nhận mật khẩu"
+					  name="ConfirmPassword"
+					  [(ngModel)]="comfirmPassword"
+					  minlength="6"
+					  required
+					/>
+				  </div>
+				</div>
+  
+				<div class="form-group d-block frm-text">
+				  <a href="#" class="fg-login float-right d-inline-block">Bạn đã có tài khoản? <b>Đăng Nhập</b></a>
+				</div>
+  
+				<button
+				  type="submit"
+				  class="btn btn-primary float-right btn-login d-block w-100"
+				>
+				  Đăng Ký
+				</button>
+			  </form>
+			</div>
+			<!-- End Form -->
+		  </div>
+		</div>
+	  </div>
+	  <!-- End Form chính -->
+	</div>
+  </div>
+  

@@ -1,0 +1,465 @@
+<!-- recuiter Nav -->
+<nav class="navbar navbar-expand-lg navbar-light nav-recuitment">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNava" aria-controls="navbarNava" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse container" id="navbarNava">
+      <ul class="navbar-nav nav-recuitment-li">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Quản lý đăng tuyển</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Quản lý ứng viên</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Quản lý đăng tin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Quản lý hồ sơ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Tài khoản</a>
+        </li>
+      </ul>
+      <ul class="rec-nav-right">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Tìm hồ sơ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Đăng tuyển</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!--  recuiter Nav -->
+  
+  <!-- widget recuitment  -->
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="home-ads">
+            <a href="#">
+              <img src="assets/img/hna2.jpg">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- (end) widget recuitment  -->
+  
+  <!-- published recuitment -->
+  <div class="container-fluid published-recuitment-wrapper">
+    <div class="container published-recuitment-content">
+      <div class="row">
+        <div class="col-md-8 col-sm-12 col-12 recuitment-inner">
+          <form class="recuitment-form">
+  
+            <div class="accordion" id="accordionExample">
+              <div class="card recuitment-card">
+                <div class="card-header recuitment-card-header" id="headingOne">
+                  <h2 class="mb-0">
+                    <a class="btn btn-link btn-block text-left recuitment-header" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Đăng tin tuyển dụng
+                      <span id="clickc1_advance2" class="clicksd">
+                        <i class="fa fa fa-angle-up"></i>
+                      </span>
+                    </a>
+                  </h2>
+                </div>
+  
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                  <div class="card-body recuitment-body">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label">Tiêu đề<span style="color: red" class="pl-2" >*</span></label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" placeholder="Nhập tiêu đề" [(ngModel)]="publish.PublishTitle" [ngModelOptions]="{standalone: true}">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label">Số lượng cần tuyển</label>
+                      <div class="col-sm-9">
+                        <input type="number" class="form-control" placeholder="1" [(ngModel)]="publish.Quantity" [ngModelOptions]="{standalone: true}">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label">Giới tính<span style="color: red" class="pl-2">*</span></label>
+                      <div class="col-sm-9">
+                        <select type="text" class="form-control" [(ngModel)]="publish.Sex" [ngModelOptions]="{standalone: true}">
+                          <option value="">Chọn giới tính</option>
+                          <option value="2">Không yêu cầu</option>
+                          <option value="0">Nam</option>
+                          <option value="1">Nữ</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label">Mô tả công việc<span style="color: red" class="pl-2">*</span></label>
+                      <div class="col-sm-9">
+                        <textarea type="text" class="form-control" placeholder="Nhập mô tả công việc" rows="5" [(ngModel)]="publish.Description" [ngModelOptions]="{standalone: true}"></textarea>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label">Yêu cầu công việc<span style="color: red" class="pl-2">*</span></label>
+                      <div class="col-sm-9">
+                        <textarea type="text" class="form-control" placeholder="Nhập yêu cầu công việc" rows="5" [(ngModel)]="publish.Requirements" [ngModelOptions]="{standalone: true}"></textarea>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label">Trình độ<span style="color: red" class="pl-2">*</span></label>
+                      <div class="col-sm-9">
+                        <select type="text" class="form-control" [(ngModel)]="publish.EducationLevelID" [ngModelOptions]="{standalone: true}">
+                          <option *ngFor="let level of educationLevels" [value]="level.EducationLevelID">{{level.EducationLevelName}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label">Kinh nghiệm<span style="color: red" class="pl-2">*</span></label>
+                      <div class="col-sm-9">
+                        <select type="text" class="form-control" [(ngModel)]="publish.ExperienceID" [ngModelOptions]="{standalone: true}">
+                          <option selected="selected" value="">Chọn kinh nghiệm</option>
+                          <option *ngFor="let ex of experiences" [value]="ex.ExperienceID">{{ex.ExperienceName}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label">Mức lương<span style="color: red" class="pl-2">*</span></label>
+                      <div class="col-sm-9">
+                        <select type="text" class="form-control" [(ngModel)]="publish.Salary" [ngModelOptions]="{standalone: true}">
+                          <option value="Dưới 3 triệu">Dưới 3 triệu</option>
+                          <option value="3-5 triệu">3-5 triệu</option>
+                          <option value="5-7 triệu">5-7 triệu</option>
+                          <option value="7-10 triệu">7-10 triệu</option>
+                          <option value="10-12 triệu">10-12 triệu</option>
+                          <option value="12-15 triệu">12-15 triệu</option>
+                          <option value="15-20 triệu">15-20 triệu</option>
+                          <option value="20-25 triệu">20-25 triệu</option>
+                          <option value="25-30 triệu">25-30 triệu</option>
+                          <option value="30-40 triệu">30-40 triệu</option>
+                          <option value="40-50 triệu">40-50 triệu</option>
+                          <option value="Trên 50 triệu">Trên 50 triệu</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label">Hình thức làm việc<span style="color: red" class="pl-2">*</span></label>
+                      <div class="col-sm-9">
+                        <select type="text" class="form-control" [(ngModel)] = "publish.FormID" [ngModelOptions]="{standalone: true}">
+                          <option selected="selected" value="">Chọn hình thức làm việc</option>
+                          <option *ngFor="let form of forms" [value]="form.FormID">{{form.FormName}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label">Vị trí<span style="color: red" class="pl-2">*</span></label>
+                      <div class="col-sm-9">
+                        <select type="text" class="form-control" [(ngModel)] = "publish.LevelID" [ngModelOptions]="{standalone: true}">
+                          <option *ngFor="let level of levels" [value]="level.LevelID">{{level.LevelName}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label">Thời gian thử việc<span style="color: red" class="pl-2">*</span></label>
+                      <div class="col-sm-9">
+                        <select type="text" class="form-control" [(ngModel)]="publish.TryTime" [ngModelOptions]="{standalone: true}">
+                          <option value="Nhận việc ngay">Nhận việc ngay</option>
+                          <option value="1 tháng">1 tháng</option>
+                          <option value="2 tháng">2 tháng</option>
+                          <option value="3 tháng">3 tháng</option>
+                          <option value="Trao đổi trực tiếp khi phỏng vấn">Trao đổi trực tiếp khi phỏng vấn</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label">Ngành nghề</label>
+                      <div class="col-sm-9">
+                        <select type="text" class="form-control" [(ngModel)]="publish.IndustryID" [ngModelOptions]="{standalone: true}">
+                          <option *ngFor="let jc of jobCat" [value]="jc.CategoryID">{{jc.CategoryName}}</option>
+                          
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label">Nơi làm việc</label>
+                      <div class="col-sm-9">
+                        <select type="text" class="form-control" [(ngModel)]="publish.WorkPlace" [ngModelOptions]="{standalone: true}">
+                          <option selected="selected" value="">Chọn nơi làm việc</option>
+                          <option *ngFor="let province of provinces" [value]="province.ProvinceName">{{province.ProvinceName}}</option>
+                          
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label">Hạn nộp hồ sơ<span style="color: red" class="pl-2">*</span></label>
+                      <div class="col-sm-9">
+                        <input type="date" class="form-control" placeholder="Nhập nơi làm việc">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card recuitment-card">
+                <div class="card-header recuitment-card-header" id="headingTwo">
+                  <h2 class="mb-0">
+                    <a class="btn btn-link btn-block text-left collapsed recuitment-header" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Phúc lợi
+                      <span id="clickc1_advance3" class="clicksd">
+                        <i class="fa fa fa-angle-up"></i>
+                      </span>
+                    </a>
+                  </h2>
+                </div>
+                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                  <div class="card-body recuitment-body">
+                   <div class="checkboxsec" id="checkboxSection">
+                    <div *ngFor="let w of welfares" class="filter-topic">
+                      <label class="label-container">
+                        <span>{{ w.WelfareName }}</span>
+                        <input 
+                          type="checkbox" 
+                          name="welfare" 
+                          [value]="w.WelfareID" 
+                          (change)="onWelfareChange($event, w.WelfareID)">
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                    
+  
+                   </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card recuitment-card">
+                <div class="card-header recuitment-card-header" id="heading4">
+                  <h2 class="mb-0">
+                    <a class="btn btn-link btn-block text-left collapsed recuitment-header" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                      Thông tin công ty
+                      <span id="clickc1_advance4" class="clicksd">
+                        <i class="fa fa fa-angle-up"></i>
+                      </span>
+                    </a>
+                  </h2>
+                </div>
+                <div id="collapse4" class="collapse show" aria-labelledby="heading4" data-parent="#collapse4">
+                  <div class="card-body recuitment-body">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label">Tên công ty<span style="color: red" class="pl-2">*</span></label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" placeholder="Tên công ty" [(ngModel)]="company.CompanyName" [ngModelOptions]="{standalone: true}"/>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label">Địa chỉ<span style="color: red" class="pl-2">*</span></label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" placeholder="Nhập địa chỉ" [(ngModel)]="company.Location" [ngModelOptions]="{standalone: true}"/>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label">Tỉnh/ Thành phô<span style="color: red" class="pl-2">*</span></label>
+                      <div class="col-sm-9">
+                        <select type="text" class="form-control" [(ngModel)]="company.Country" [ngModelOptions]="{standalone: true}">
+                          <option *ngFor="let province of provinces" [value]="province.ProvinceID">{{province.ProvinceName}}</option>
+                          
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label">Quy mô nhân sự<span style="color: red" class="pl-2">*</span></label>
+                      <div class="col-sm-9">
+                        <input type="number" class="form-control" placeholder="1" [(ngModel)]="company.EmployeeCount" [ngModelOptions]="{standalone: true}">
+                      </div>
+                    </div>
+                     <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label">Ngành nghề</label>
+                      <div class="col-sm-9">
+                        <select type="text" class="form-control" [(ngModel)]="company.IndustryID" [ngModelOptions]="{standalone: true}">
+                          <option *ngFor="let jc of jobCat" [value]="jc.CategoryID">{{jc.CategoryName}}</option>
+                          
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label">Sơ lược về công ty<span style="color: red" class="pl-2">*</span></label>
+                      <div class="col-sm-9">
+                        <textarea type="text" class="form-control" placeholder="Sơ lược về công ty" rows="5" [(ngModel)]="company.Description" [ngModelOptions]="{standalone: true}"></textarea>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label">Logo</label>
+                      <div class="col-sm-9 " >
+                        <div id="drop-area">
+                    
+                            <input type="file" id="fileElem" multiple accept="image/*" [(ngModel)]="company.Logo" [ngModelOptions]="{standalone: true}">
+                            <label style="cursor: pointer;" for="fileElem">Tải ảnh lên hoặc kéo thả vào đây</label>
+                            <progress id="progress-bar" max=100 value=0 class="d-none"></progress>
+                             <div id="gallery"></div>
+                         
+                        </div>
+                        
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label text-right label">Website</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" placeholder="Website" [(ngModel)]="company.Website" [ngModelOptions]="{standalone: true}"/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rec-submit">
+              <button type="submit" class="btn-submit-recuitment" name="" (click)="saveChange()">
+                <i class="fa fa-floppy-o pr-2"></i>Lưu Tin
+              </button>
+            </div>
+          </form>
+          
+        </div>
+        <!-- Side bar -->
+        <div class="col-md-4 col-sm-12 col-12">
+          <div class="recuiter-info">
+            <div class="recuiter-info-avt">
+              <img src="assets/img/icon_avatar.jpg">
+            </div>
+            <div class="clearfix list-rec">
+              <h4>NESTLE Inc.</h4>
+              <ul>
+                <li><a href="#">Việc làm đang đăng <strong>(0)</strong></a></li>
+                <li><a href="#">Follower <strong>(450)</strong></a></li>
+              </ul>
+            </div>
+          </div>
+  
+  
+          <div class="block-sidebar" style="margin-bottom: 20px;">
+     <header>
+        <h3 class="title-sidebar font-roboto bg-primary">
+           Trung tâm quản lý
+        </h3>
+     </header>
+     <div class="content-sidebar menu-trung-tam-ql menu-ql-employer">
+        <h3 class="menu-ql-ntv">
+           Quản lý tài khoản
+        </h3>
+        <ul>
+           <li>
+              <a href="#">
+              Tài khoản
+              </a>
+           </li>
+           <li>
+              <a href="#">
+              Giấy phép kinh doanh
+              </a>
+           </li>
+        </ul>
+        <h3 class="menu-ql-ntv">
+           Quản lý dịch vụ
+        </h3>
+        <ul>
+           <li>
+              <a href="#">
+              Lịch sử dịch vụ
+              </a>
+           </li>
+           <li>
+              <a href="#" target="_blank">
+              Báo giá
+              </a>
+           </li>
+        </ul>
+        <h3 class="menu-ql-ntv">
+           Quản lý tin tuyển dụng
+        </h3>
+        <ul>
+           <li>
+              <a href="#">
+              Đăng tin tuyển dụng
+              </a>
+           </li>
+           <li>
+              <a href="#">
+              Danh sách tin tuyển dụng
+              </a>
+           </li>
+        </ul>
+        <h3 class="menu-ql-ntv">
+           Quản lý ứng viên
+        </h3>
+        <ul>
+           <li>
+              <a href="#">
+              Tìm kiếm hồ sơ
+              </a>
+           </li>
+           <li>
+              <a href="#">
+              Hồ sơ đã lưu
+              </a>
+           </li>
+           <li>
+              <a href="#">
+              Hồ sơ đã ứng tuyển
+              </a>
+           </li>
+           <li>
+              <a href="#" title="Thông báo hồ sơ phù hợp">
+              Thông báo hồ sơ phù hợp
+              </a>
+           </li>
+        </ul>
+        <h3 class="menu-ql-ntv">
+           Hỗ trợ và thông báo
+        </h3>
+        <ul>
+           <li>
+              <a href="#" title="Gửi yêu cầu đến ban quản trị">
+              Gửi yêu cầu đến ban quản trị
+              </a>
+           </li>
+           <li>
+              <a href="#" title="Ban quản trị thông báo">
+              Ban quản trị thông báo
+              </a>
+           </li>
+           <li>
+              <a href="#" title="Hướng dẫn thao tác">
+              Hướng dẫn thao tác
+              </a>
+           </li>
+           <li>
+              <a href="#" target="_blank">
+              <span>Thông tin thanh toán</span>
+              </a>
+           </li>
+           <li>
+              <a target="_blank" href="#">
+              <span>Cổng tra cứu lương</span>
+              </a>
+           </li>
+           <li>
+              <a target="_blank" href="#">
+              <span> Cẩm nang tuyển dụng</span>
+              </a>
+           </li>
+        </ul>
+        <ul>
+           <li class="logout">
+              <a href="#" title="Đăng xuất">
+              Đăng xuất
+              </a>
+           </li>
+        </ul>
+     </div>
+  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- (end) published recuitment -->
+  
+  <div class="clearfix"></div>

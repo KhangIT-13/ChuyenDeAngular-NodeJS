@@ -1,0 +1,324 @@
+<!-- job detail header -->
+<div class="container-fluid job-detail-wrap">
+  <div class="container job-detail">
+    <div class="job-detail-header">
+      <div class="row">
+        <div class="col-md-2 col-sm-12 col-12">
+          <div class="job-detail-header-logo">
+            <a href="#">
+              <img
+                src="assets/img/fpt-logo.png"
+                class="job-logo-ima"
+                alt="job-logo"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="col-md-7 col-sm-12 col-12">
+          <div class="job-detail-header-desc">
+            <div class="job-detail-header-title">
+              <a href="#">{{ job.PublishTitle }}</a>
+            </div>
+            <div class="job-detail-header-company">
+              <a href="#">{{ company.CompanyName }}</a>
+            </div>
+            <div class="job-detail-header-de">
+              <ul>
+                <li>
+                  <i class="fa fa-map-marker icn-jd"></i
+                  ><span>{{ job.WorkPlace }}</span>
+                </li>
+                <li>
+                  <i class="fa fa-usd icn-jd"></i><span>{{ job.Salary }}</span>
+                </li>
+                <li>
+                  <i class="fa fa-calendar icn-jd"></i
+                  ><span>{{
+                    job.SubmissionDeadline | date : "dd/MM/yyyy"
+                  }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-12 col-12">
+          <div class="jd-header-wrap-right">
+            <div class="jd-center">
+              <a *ngIf="!nopDon" (click)="ungTuyen(job.PublishID)" class="btn btn-primary btn-apply">Nộp đơn</a>
+              <a *ngIf="nopDon" class="btn btn-primary btn-apply">Đã ứng tuyển</a>
+              <p class="jd-view">Cần tuyển: <span>{{job.Quantity}}</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- (end) job detail header -->
+
+<div class="clearfix"></div>
+
+<!-- Phần thân -->
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <!-- Main wrapper -->
+      <div class="col-md-8 col-sm-12 col-12 clear-left">
+        <div class="main-wrapper">
+          <h2 class="widget-title">
+            <span>Phúc lợi</span>
+          </h2>
+          <!-- content -->
+          <div class="welfare-wrap">
+            <div class="welfare-list">
+              <div class="jd-content" *ngFor="let welFare of welfaresName" >{{ welFare }}</div>
+            </div>
+          </div>
+          <h2 class="widget-title">
+            <span>Mô tả công việc</span>
+          </h2>
+          <div class="jd-content">
+            {{ job.Description }}
+          </div>
+          <h2 class="widget-title">
+            <span>Yêu cầu công việc</span>
+          </h2>
+          <div class="jd-content">
+            {{ job.Requirements }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="col-md-4 col-sm-12 col-12 clear-right">
+        <div class="side-bar mb-3">
+          <h2 class="widget-title">
+            <span>Thông tin</span>
+          </h2>
+
+          <div class="job-info-wrap">
+            <div class="job-info-list">
+              <div class="row">
+                <div class="col-sm-4">
+                  <span class="ji-title">Nơi làm việc:</span>
+                </div>
+                <div class="col-sm-8">
+                  <span class="ji-main">{{ job.WorkPlace }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="job-info-list">
+              <div class="row">
+                <div class="col-sm-4">
+                  <span class="ji-title">Cấp bậc:</span>
+                </div>
+                <div class="col-sm-8">
+                  <span class="ji-main">{{ job.Level }}</span>
+                </div>
+              </div>
+            </div> -->
+
+            <div class="job-info-list">
+              <div class="row">
+                <div class="col-sm-4">
+                  <span class="ji-title">Lương:</span>
+                </div>
+                <div class="col-sm-8">
+                  <span class="ji-main">{{ job.Salary }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="job-info-list">
+              <div class="row">
+                <div class="col-sm-4">
+                  <span class="ji-title">Hạn nộp:</span>
+                </div>
+                <div class="col-sm-8">
+                  <span class="ji-main">{{
+                    job.SubmissionDeadline | date : "dd/MM/yyyy"
+                  }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="job-info-list">
+              <div class="row">
+                <div class="col-sm-4">
+                  <span class="ji-title">Ngành nghề:</span>
+                </div>
+                <div class="col-sm-8">
+                  <span class="ji-main">{{ location }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="job-info-list">
+              <div class="row">
+                <div class="col-sm-4">
+                  <span class="ji-title">Thời gian thử việc:</span>
+                </div>
+                <div class="col-sm-8">
+                  <span class="ji-main">{{ job.TryTime }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="job-info-list">
+              <div class="row">
+                <div class="col-sm-4">
+                  <span class="ji-title">Kinh nghiệm:</span>
+                </div>
+                <div class="col-sm-8">
+                  <span class="ji-main">{{ experience }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="side-bar mb-3">
+          <h2 class="widget-title">
+            <span>Giới thiệu công ty</span>
+          </h2>
+          <div class="company-intro">
+            <a href="#">
+              <img
+                src="assets/img/fpt-logo.png"
+                class="job-logo-ima"
+                alt="job-logo"
+              />
+            </a>
+          </div>
+          <h2 class="company-intro-name">{{company.CompanyName}}</h2>
+          <ul class="job-add">
+            <li>
+              <i class="fa fa-map-marker ja-icn"></i>
+              <span
+                >{{ company.Location}}
+              </span>
+            </li>
+            <li>
+              <i class="fa fa-bar-chart ja-icn"></i>
+              <span>Quy mô công ty: {{company.EmployeeCount || 1}} người</span>
+            </li>
+          </ul>
+
+          <div class="wrap-comp-info mb-2">
+            <a href="#" class="btn btn-primary btn-company">Xem thêm</a>
+          </div>
+        </div> -->
+
+        <div class="side-bar mb-3">
+          <h2 class="widget-title">
+            <span>Việc làm tương tự</span>
+          </h2>
+
+          <div class="job-tt-contain">
+            <div class="job-tt-item">
+              <a href="#" class="thumb">
+                <div style="background-image: url(img/alipay-logo.png)"></div>
+              </a>
+
+              <div class="info">
+                <a href="#" class="jobname">
+                  Fullstack .NET Developer (Angular/React)
+                </a>
+                <a href="#" class="company"> Alipay Software </a>
+              </div>
+            </div>
+
+            <div class="job-tt-item">
+              <a href="#" class="thumb">
+                <div style="background-image: url(img/fpt-logo.png)"></div>
+              </a>
+
+              <div class="info">
+                <a href="#" class="jobname">
+                  [HCM] 02 Solution Architects–Up to $2000
+                </a>
+                <a href="#" class="company"> FPT Software </a>
+              </div>
+            </div>
+            <div class="job-tt-item">
+              <a href="#" class="thumb">
+                <div style="background-image: url(img/alipay-logo.png)"></div>
+              </a>
+
+              <div class="info">
+                <a href="#" class="jobname">
+                  Fullstack .NET Developer (Angular/React)
+                </a>
+                <a href="#" class="company"> Alipay Software </a>
+              </div>
+            </div>
+            <div class="job-tt-item">
+              <a href="#" class="thumb">
+                <div style="background-image: url(img/alipay-logo.png)"></div>
+              </a>
+
+              <div class="info">
+                <a href="#" class="jobname">
+                  Fullstack .NET Developer (Angular/React)
+                </a>
+                <a href="#" class="company"> Alipay Software </a>
+              </div>
+            </div>
+            <div class="job-tt-item">
+              <a href="#" class="thumb">
+                <div style="background-image: url(img/alipay-logo.png)"></div>
+              </a>
+
+              <div class="info">
+                <a href="#" class="jobname">
+                  Fullstack .NET Developer (Angular/React)
+                </a>
+                <a href="#" class="company"> Alipay Software </a>
+              </div>
+            </div>
+            <div class="job-tt-item">
+              <a href="#" class="thumb">
+                <div style="background-image: url(img/alipay-logo.png)"></div>
+              </a>
+
+              <div class="info">
+                <a href="#" class="jobname">
+                  Fullstack .NET Developer (Angular/React)
+                </a>
+                <a href="#" class="company"> Alipay Software </a>
+              </div>
+            </div>
+            <div class="job-tt-item">
+              <a href="#" class="thumb">
+                <div style="background-image: url(img/alipay-logo.png)"></div>
+              </a>
+
+              <div class="info">
+                <a href="#" class="jobname">
+                  Fullstack .NET Developer (Angular/React)
+                </a>
+                <a href="#" class="company"> Alipay Software </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="side-bar mb-3">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="home-ads">
+                  <a href="#">
+                    <img src="assets/img/ads1.jpg" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- (end) Phần thân -->

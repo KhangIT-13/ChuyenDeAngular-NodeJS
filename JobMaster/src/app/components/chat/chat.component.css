@@ -1,0 +1,70 @@
+/* chat.component.css */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  .chat-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .chat-box {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chat-message {
+    margin-bottom: 10px;
+    max-width: 70%; /* Giới hạn chiều rộng */
+  }
+  
+  .my-message {
+    background-color: #dcf8c6;
+    align-self: flex-end; /* Tin nhắn của người dùng nằm bên phải */
+    padding: 8px 12px;
+    border-radius: 20px;
+  }
+  
+  .other-message {
+    background-color: #93c2f8;
+    align-self: flex-start; /* Tin nhắn của đối phương nằm bên trái */
+    padding: 8px 12px;
+    border-radius: 20px;
+  }
+  
+  .chat-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+  }
+  
+  .chat-input input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  .chat-input button {
+    margin-left: 10px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  

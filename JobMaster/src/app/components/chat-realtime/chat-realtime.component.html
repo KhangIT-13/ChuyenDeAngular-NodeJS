@@ -1,0 +1,75 @@
+<main class="chat-container">
+    <aside class="chat-sidebar">
+      <div
+        class="user-item"
+        *ngFor="let user of users"
+        [ngClass]="{ selected: selectedUser === user }"
+        (click)="selectUser(user)"
+      >
+        <img
+          [src]="user.avatar"
+          [alt]="user.name + ' profile'"
+          class="user-avatar"
+        />
+        <ng-container *ngIf="windowWidth >= 768">
+          <span class="username">{{ user.name }}</span>
+        </ng-container>
+        <span
+          class="status-indicator"
+          [ngClass]="{ online: user.isOnline, offline: !user.isOnline }"
+        ></span>
+      </div>
+    </aside>
+    <section class="chat-main">
+      <header class="chat-header">
+        <button class="back-button" aria-label="Go back" (click)="goBack()">
+          ◀
+        </button>
+        <h1 class="current-user">{{ selectedUser?.name || currentUser }}</h1>
+      </header>
+      <section class="chat-messages">
+        <div
+          *ngFor="let message of selectedUserMessages"
+          class="message"
+          [ngClass]="{ partner: !message.isUser, user: message.isUser }"
+        >
+          <ng-container *ngIf="!message.isUser">
+            <img
+              [src]="partnerProfilePic"
+              alt="Chat Partner"
+              class="avatar"
+            />
+          </ng-container>
+          <p class="message-content">{{ message.content }}</p>
+          <ng-container *ngIf="message.isUser">
+            <img
+              [src]="userProfilePic"
+              alt="Current User"
+              class="avatar"
+            />
+          </ng-container>
+        </div>
+      </section>
+      <form class="chat-input-form" (ngSubmit)="sendMessage()">
+        <label for="messageInput" class="visually-hidden">Type a message</label>
+        <input
+          type="text"
+          id="messageInput"
+          class="message-input"
+          placeholder="Type a message..."
+          aria-label="Type a message"
+          [(ngModel)]="newMessage"
+          name="newMessage"
+        />
+        <button type="submit" class="send-button">Send</button>
+        <button
+          type="button"
+          class="attach-button"
+          aria-label="Attach file"
+          (click)="attachFile()"
+        >
+          📎
+        </button>
+      </form>
+    </section>
+  </main>
